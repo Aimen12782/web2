@@ -14,9 +14,12 @@ pipeline {
         stage('Deploy Website') {
             steps {
                 echo 'Website deploy ho rahi hai...'
+
                 bat '''
-                rm -rf /var/www/html/*
-                cp -r * /var/www/html/
+                IF EXIST C:\\inetpub\\wwwroot (
+                    del /Q C:\\inetpub\\wwwroot\\*
+                )
+                xcopy * C:\\inetpub\\wwwroot\\ /E /Y /I
                 '''
             }
         }
