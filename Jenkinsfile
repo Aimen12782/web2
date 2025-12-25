@@ -11,15 +11,11 @@ pipeline {
             }
         }
 
-        stage('Deploy Website') {
+       stage('Deploy Website') {
             steps {
-                echo 'Website deploy ho rahi hai...'
-
                 bat '''
-                IF EXIST C:\\inetpub\\wwwroot (
-                    del /Q C:\\inetpub\\wwwroot\\*
-                )
-                xcopy * C:\\inetpub\\wwwroot\\ /E /Y /I
+                mkdir C:\\deploy 2>nul
+                xcopy * C:\\deploy\\ /E /Y /I
                 '''
             }
         }
