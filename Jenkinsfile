@@ -6,7 +6,7 @@ pipeline {
         stage('Clone Code') {
             steps {
                 echo 'Code download ho raha hai...'
-                git branch: 'main',
+                git branch: 'master',
                     url: 'https://github.com/Aimen12782/web2'
             }
         }
